@@ -68,10 +68,10 @@ export class AppComponent implements OnInit {
     this.bb.forEach((st: string) => {
       if (st.indexOf('轉物件') > -1 && res) {
         const stt = st.replace('轉物件', '');
-        this.dd.push(stt + `:${stt[0].toUpperCase() + stt.slice(1)};<br/>`);
+        this.dd.push(stt + `:${stt[0].toUpperCase() + stt.slice(1)}[];<br/>`);
       } else if (st.indexOf('轉物件') > -1 && !res) {
         const stt = st.replace('轉物件', '');
-        this.dd.push(stt + ` = new ${stt[0].toUpperCase() + stt.slice(1)}();<br/>`);
+        this.dd.push(stt + `:${stt[0].toUpperCase() + stt.slice(1)} = [];<br/>`);
       } else if (res) {
         this.dd.push(st + ':string;<br/>');
       } else {
@@ -81,7 +81,16 @@ export class AppComponent implements OnInit {
 
 
     this.cc.forEach((st) => {
-      this.ee.push('/** ' + st + ' */' + '<br/>')
+      console.log('st',st)
+      console.log('st.indexOf(轉物件)=',st.indexOf('轉物件'))
+      if (st.indexOf('轉物件') > -1) {
+
+        const stt = st.replace('轉物件', '');
+        console.log('stt=',stt)
+        this.ee.push('/** ' + stt + ' */' + '<br/>');
+      } else {
+        this.ee.push('/** ' + st + ' */' + '<br/>');
+      }
     });
 
 
