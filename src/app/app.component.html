@@ -1,0 +1,39 @@
+<div class="container-fluid ">
+  <div class="row">
+
+
+    <div class="col-12 text-center mt-3">
+
+      <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Welcome to ScsbCorpClass，幫忙您產出上下行格式</h4>
+      </div>
+    </div>
+    <div class="col-12 mt-3">
+      <div class="form-floating">
+        <textarea class="form-control" style="height:90px;padding:0px" placeholder="Leave a comment here"
+          id="floatingTextarea" [(ngModel)]="str"></textarea>
+      </div>
+    </div>
+
+    <div class="col-12 mt-3 text-center">
+      <div class="p-1 d-inline">
+        <button type="button" class="btn btn-outline-danger " (click)="mergeRes(false)">Request</button>
+      </div>
+      <div class="ps-1 d-inline">
+        <button type="button" class="btn btn-outline-secondary" (click)="mergeRes(true)">Response</button>
+      </div>
+    </div>
+
+    <div class="container mt-3">
+      <div class="alert alert-dark" role="alert">
+        <span *ngIf="res">
+          resBody:&#123;<br/></span>
+        <span *ngFor="let item of yyy" [innerHTML]="item"></span>
+        <span *ngIf="res">&#125;</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<router-outlet></router-outlet>
