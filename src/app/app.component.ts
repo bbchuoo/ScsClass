@@ -51,9 +51,14 @@ export class AppComponent implements OnInit {
 
       const str = element.replace(/\s+/g, ' ');
       const aa = str.split(" ");
-      if (aa.length === 3) {
+      console.log('aa=', aa)
+      if (aa.length === 3 && aa[1] !== 'Object') {
         this.bb.push(aa[0]);
         this.cc.push(aa[2]);
+      }
+      if (aa.length === 3 && aa[1] === 'Object') {
+        this.bb.push(aa[0] + '物件');
+        this.cc.push(aa[2] + '物件');
       }
       if (aa.length === 4) {
         this.bb.push(aa[0] + '轉物件');
@@ -72,6 +77,12 @@ export class AppComponent implements OnInit {
       } else if (st.indexOf('轉物件') > -1 && !res) {
         const stt = st.replace('轉物件', '');
         this.dd.push(stt + `:${stt[0].toUpperCase() + stt.slice(1)} = [];<br/>`);
+      } else if (st.indexOf('物件') > -1 && res) {
+        const stt = st.replace('物件', '');
+        this.dd.push(stt + `:${stt[0].toUpperCase() + stt.slice(1)};<br/>`);
+      } else if (st.indexOf('物件') > -1 && !res) {
+        const stt = st.replace('物件', '');
+        this.dd.push(stt + ` = new ${stt[0].toUpperCase() + stt.slice(1)}();<br/>`);
       } else if (res) {
         this.dd.push(st + ':string;<br/>');
       } else {
@@ -81,12 +92,15 @@ export class AppComponent implements OnInit {
 
 
     this.cc.forEach((st) => {
-      console.log('st',st)
-      console.log('st.indexOf(轉物件)=',st.indexOf('轉物件'))
+      console.log('st', st)
+      console.log('st.indexOf(轉物件)=', st.indexOf('轉物件'))
       if (st.indexOf('轉物件') > -1) {
-
         const stt = st.replace('轉物件', '');
-        console.log('stt=',stt)
+        console.log('stt=', stt)
+        this.ee.push('/** ' + stt + ' */' + '<br/>');
+      } else if (st.indexOf('物件') > -1) {
+        const stt = st.replace('物件', '');
+        console.log('stt=', stt)
         this.ee.push('/** ' + stt + ' */' + '<br/>');
       } else {
         this.ee.push('/** ' + st + ' */' + '<br/>');
