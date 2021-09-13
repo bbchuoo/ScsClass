@@ -76,7 +76,7 @@ export class AppComponent implements OnInit {
         this.dd.push(stt + `:${stt[0].toUpperCase() + stt.slice(1)}[];<br/>`);
       } else if (st.indexOf('轉物件') > -1 && !res) {
         const stt = st.replace('轉物件', '');
-        this.dd.push(stt + `:${stt[0].toUpperCase() + stt.slice(1)} = [];<br/>`);
+        this.dd.push(stt + `:${stt[0].toUpperCase() + stt.slice(1)}[] = [];<br/>`);
       } else if (st.indexOf('物件') > -1 && res) {
         const stt = st.replace('物件', '');
         this.dd.push(stt + `:${stt[0].toUpperCase() + stt.slice(1)};<br/>`);
