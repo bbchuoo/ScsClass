@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "scsbCorpClass": {
+    "scsClass": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/scsbCorpClass",
+            "outputPath": "dist/scsClass",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -63,18 +63,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "scsbCorpClass:build"
+            "browserTarget": "scsClass:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "scsbCorpClass:build:production"
+              "browserTarget": "scsClass:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "scsbCorpClass:build"
+            "browserTarget": "scsClass:build"
           }
         },
         "test": {
@@ -111,11 +111,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "scsbCorpClass:serve"
+            "devServerTarget": "scsClass:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "scsbCorpClass:serve:production"
+              "devServerTarget": "scsClass:serve:production"
             }
           }
         },
@@ -126,5 +126,5 @@
       }
     }
   },
-  "defaultProject": "scsbCorpClass"
+  "defaultProject": "scsClass"
 }
